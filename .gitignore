@@ -1,0 +1,63 @@
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Rust =====
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# ===== Node / Frontend =====
+node_modules/
+dist/
+build/
+.next/
+out/
+.turbo/
+.cache/
+.pnpm-debug.log*
+yarn-error.log*
+npm-debug.log*
+
+# ===== Env / Secrets =====
+.env
+.env.*
+*.key
+*.pem
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+
+# ===== Solana / Anchor =====
+test-ledger/
+.anchor/
+.deploy/
+**/test-ledger/
+**/.anchor/
+**/.deploy/
+
+# ===== Databases / Logs =====
+*.log
+rocksdb/
+**/rocksdb/
+
+# ===== Temporary / Artifacts =====
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ===== Coverage / Bench =====
+coverage/
+lcov.info
+benchmarks/
+
+# ===== WASM =====
+pkg/
+wasm-pack.log
+
+# ===== Misc =====
+*.zip
+*.tar.gz

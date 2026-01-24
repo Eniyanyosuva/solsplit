@@ -1,0 +1,565 @@
+{
+  "address": "7dChiG6VDtneaVXxd2gdtg6MxsPXTvYUnEPEgP4sFKts",
+  "metadata": {
+    "name": "solsplit",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Minimal secure SOL payment splitter"
+  },
+  "instructions": [
+    {
+      "name": "cancel_split",
+      "docs": [
+        "Cancel a split configuration before execution"
+      ],
+      "discriminator": [
+        162,
+        115,
+        64,
+        201,
+        54,
+        248,
+        206,
+        134
+      ],
+      "accounts": [
+        {
+          "name": "split_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  112,
+                  108,
+                  105,
+                  116,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "sender"
+              },
+              {
+                "kind": "account",
+                "path": "split_config.nonce",
+                "account": "SplitConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sender",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "close_split",
+      "docs": [
+        "Close a split configuration after execution to reclaim rent"
+      ],
+      "discriminator": [
+        22,
+        32,
+        88,
+        169,
+        165,
+        249,
+        251,
+        232
+      ],
+      "accounts": [
+        {
+          "name": "split_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  112,
+                  108,
+                  105,
+                  116,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "sender"
+              },
+              {
+                "kind": "account",
+                "path": "split_config.nonce",
+                "account": "SplitConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sender",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "execute_split",
+      "docs": [
+        "Execute the split by transferring SOL to recipients"
+      ],
+      "discriminator": [
+        6,
+        45,
+        171,
+        40,
+        49,
+        129,
+        23,
+        89
+      ],
+      "accounts": [
+        {
+          "name": "split_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  112,
+                  108,
+                  105,
+                  116,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "sender"
+              },
+              {
+                "kind": "account",
+                "path": "split_config.nonce",
+                "account": "SplitConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sender",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "recipient1",
+          "writable": true
+        },
+        {
+          "name": "recipient2",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_split",
+      "docs": [
+        "Initialize a new split configuration"
+      ],
+      "discriminator": [
+        53,
+        17,
+        92,
+        9,
+        84,
+        151,
+        173,
+        78
+      ],
+      "accounts": [
+        {
+          "name": "split_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  112,
+                  108,
+                  105,
+                  116,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "sender"
+              },
+              {
+                "kind": "arg",
+                "path": "nonce"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sender",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "recipient1"
+        },
+        {
+          "name": "recipient2"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "recipient1_percentage",
+          "type": "u8"
+        },
+        {
+          "name": "recipient2_percentage",
+          "type": "u8"
+        },
+        {
+          "name": "nonce",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "SplitConfig",
+      "discriminator": [
+        49,
+        201,
+        50,
+        228,
+        22,
+        142,
+        12,
+        222
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "SplitCancelled",
+      "discriminator": [
+        130,
+        24,
+        156,
+        27,
+        108,
+        144,
+        79,
+        192
+      ]
+    },
+    {
+      "name": "SplitClosed",
+      "discriminator": [
+        39,
+        36,
+        155,
+        71,
+        45,
+        189,
+        210,
+        142
+      ]
+    },
+    {
+      "name": "SplitExecuted",
+      "discriminator": [
+        147,
+        176,
+        193,
+        145,
+        52,
+        30,
+        166,
+        53
+      ]
+    },
+    {
+      "name": "SplitInitialized",
+      "discriminator": [
+        146,
+        118,
+        141,
+        23,
+        250,
+        7,
+        102,
+        253
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidPercentages",
+      "msg": "Percentages must sum to exactly 100"
+    },
+    {
+      "code": 6001,
+      "name": "ZeroPercentage",
+      "msg": "Percentage cannot be zero"
+    },
+    {
+      "code": 6002,
+      "name": "AlreadyExecuted",
+      "msg": "Split has already been executed"
+    },
+    {
+      "code": 6003,
+      "name": "NotExecuted",
+      "msg": "Split has not been executed yet"
+    },
+    {
+      "code": 6004,
+      "name": "UnauthorizedSender",
+      "msg": "Unauthorized sender"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidRecipient",
+      "msg": "Invalid recipient address"
+    },
+    {
+      "code": 6006,
+      "name": "AmountTooSmall",
+      "msg": "Amount must be at least 1000 lamports"
+    },
+    {
+      "code": 6007,
+      "name": "MathOverflow",
+      "msg": "Math operation overflow"
+    },
+    {
+      "code": 6008,
+      "name": "InsufficientBalance",
+      "msg": "Insufficient balance"
+    },
+    {
+      "code": 6009,
+      "name": "DuplicateRecipient",
+      "msg": "Recipients must be different addresses"
+    }
+  ],
+  "types": [
+    {
+      "name": "SplitCancelled",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sender",
+            "type": "pubkey"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SplitClosed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sender",
+            "type": "pubkey"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SplitConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sender",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient1",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient2",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient1_percentage",
+            "type": "u8"
+          },
+          {
+            "name": "recipient2_percentage",
+            "type": "u8"
+          },
+          {
+            "name": "executed",
+            "type": "bool"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "executed_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SplitExecuted",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sender",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient1",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient2",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount1",
+            "type": "u64"
+          },
+          {
+            "name": "amount2",
+            "type": "u64"
+          },
+          {
+            "name": "total_amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SplitInitialized",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "sender",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient1",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient2",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient1_percentage",
+            "type": "u8"
+          },
+          {
+            "name": "recipient2_percentage",
+            "type": "u8"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    }
+  ]
+}
