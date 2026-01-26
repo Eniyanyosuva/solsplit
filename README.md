@@ -15,7 +15,7 @@
 **SolSplit** is a decentralized payment splitting protocol built on Solana that enables instant, fee-free distribution of SOL to multiple recipients. Perfect for freelancers, content creators, and businesses that need to split payments automatically.
 
 ### ✨ Key Features
-
+ 
 - ⚡ **Lightning Fast** - Transactions confirm in ~400ms on Solana 
 - 💎 **Zero Platform Fees** - Only pay Solana network fees (~$0.00025)
 - 🔒 **Non-Custodial** - You control your funds at all times
