@@ -16,7 +16,7 @@
 
 ### ✨ Key Features
 
-- ⚡ **Lightning Fast** - Transactions confirm in ~400ms on Solana
+- ⚡ **Lightning Fast** - Transactions confirm in ~400ms on Solana 
 - 💎 **Zero Platform Fees** - Only pay Solana network fees (~$0.00025)
 - 🔒 **Non-Custodial** - You control your funds at all times
 - 🎯 **Simple & Intuitive** - Two-step process: Configure → Execute
