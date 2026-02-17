@@ -291,34 +291,6 @@ vercel --prod
 
 ---
 
-## 🛣️ Roadmap
-
-### Phase 1: Core Features ✅
-- [x] Two-recipient splits
-- [x] Percentage-based distribution
-- [x] Web interface
-- [x] Wallet integration
-
-### Phase 2: Enhanced Features 🚧
-- [ ] Multi-recipient splits (3+ recipients)
-- [ ] SPL token support
-- [ ] Recurring splits
-- [ ] Split templates
-
-### Phase 3: Advanced Features 📋
-- [ ] Mobile app (iOS/Android)
-- [ ] API for developers
-- [ ] Analytics dashboard
-- [ ] Multi-signature support
-
-### Phase 4: Ecosystem 🌐
-- [ ] Plugin for popular wallets
-- [ ] Integration with payment processors
-- [ ] DAO treasury management
-- [ ] Cross-chain bridges
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
