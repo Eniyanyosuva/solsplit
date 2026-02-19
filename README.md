@@ -1,4 +1,4 @@
-# SolSplit ⚡
+# SolSplit
 
 > Lightning-fast payment splitting on Solana - Zero fees, Instant settlements
 
